@@ -49,6 +49,9 @@ Running on public URL: https://76bf0da76553726113.gradio.live
 
 可以直接选择 Chat 模块加载模型，测试不同模型的效果，再选择需要训练的模型。<br>
 
+> [!TIP]
+> 遇到包冲突时，可使用 `pip install --no-deps -e .` 解决。
+
 
 ## 附录:
 
