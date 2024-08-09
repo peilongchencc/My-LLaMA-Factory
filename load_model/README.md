@@ -21,7 +21,7 @@
 
 A100 运行 `GLM-4-9B-Chat` 时的资源占用为:<br>
 
-![](../docs/算力单元_A100.jpg)
+<img src="../docs/算力单元_A100.jpg" alt="image" width="50%" height="50%">
 
 > [!CAUTION]
 > 使用T4显存会不够，高RAM也不行，所以尽可能使用更大的显存。
