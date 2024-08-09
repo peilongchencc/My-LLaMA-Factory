@@ -1,6 +1,6 @@
 # Colab使用LLaMA-Factory加载模型
 
-以加载 `GLM-4-9B-Chat` 介绍在Colab中LLaMA-Factory的使用。<br>
+在Colab中使用LLaMA-Factory加载 `GLM-4-9B-Chat` ，介绍LLaMA-Factory的简单使用。<br>
 - [Colab使用LLaMA-Factory加载模型](#colab使用llama-factory加载模型)
   - [程序启动前的注意事项:](#程序启动前的注意事项)
     - [1. GPU选择](#1-gpu选择)
@@ -15,7 +15,7 @@
 
 ### 1. GPU选择
 
-菜单栏 --> 修改 --> 笔记本设置。笔者选择的是GPU为 A100，图示如下:<br>
+首先需要选择足够大的GPU显存才可以运行模型，Colab中GPU的选择方式为: **菜单栏 --> 修改 --> 笔记本设置** 。笔者选择的是GPU为 A100，图示如下:<br>
 
 ![](../docs/GPU设置.png)
 
