@@ -11,6 +11,7 @@ LLaMA-Factory使用经验记录。
 | 文件夹名称   | 作用           | 备注                |
 |--------------|----------------|---------------------|
 | easy_to_use          | 直接加载模型进行测试，体验LLaMA-Factory的使用     | Colab方式    |
+| model_train_colab          | 在Colab中使用LLaMA-Factory训练模型     | Colab方式    |
 
 
 ## 鸣谢:
