@@ -6,7 +6,7 @@
     - [1. GPU选择](#1-gpu选择)
     - [2. HF账号创建Token，获取模型拉取权限](#2-hf账号创建token获取模型拉取权限)
   - [程序启动:](#程序启动)
-  - [小技巧](#小技巧)
+  - [Tips:](#tips)
   - [附录:](#附录)
     - [Colab如何如何登陆HF:](#colab如何如何登陆hf)
 
@@ -45,12 +45,16 @@ Running on public URL: https://76bf0da76553726113.gradio.live
 ![](../docs/加载GLM-4-9B-Chat.jpg)
 
 
-## 小技巧
+## Tips:
 
 可以直接选择 Chat 模块加载模型，测试不同模型的效果，再选择需要训练的模型。<br>
 
 > [!TIP]
 > 遇到包冲突时，可使用 `pip install --no-deps -e .` 解决。
+
+Colab的GPU无法扩展，大家平常测试大模型都是使用自己的服务器(阿里云、AWS资源)。Google colab 可以连接自己购买的服务器，但那个非常贵。<br>
+
+快速测试大模型的方式: 使用 Hugging Face 已经量化过的大模型来测试，这个加载容易些、占用显存较小<br>
 
 
 ## 附录:
