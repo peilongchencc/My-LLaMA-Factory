@@ -10,10 +10,11 @@ LLaMA-Factory使用经验记录。
 
 | 文件夹名称   | 作用           | 备注                |
 |--------------|----------------|---------------------|
+| data          | 数据集示例     |     |
+| data_structure          | 数据集格式解释     |     |
 | easy_to_use          | 直接加载模型进行测试，体验LLaMA-Factory的使用     | Colab方式    |
 | easy_to_train_model          | 使用项目本身数据集训练模型     | Colab方式    |
 | custom_dataset_train          | 使用自定义数据集训练模型     | Colab方式    |
-| data_structure          | 数据集格式解释     |     |
 
 
 ## 鸣谢:
