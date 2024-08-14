@@ -73,11 +73,11 @@ Wed Aug 14 15:17:32 2024
 
 如果你是Linux用户，可以运行下列指令，通过Linux自带的文本处理的工具(sed)，从终端直接更新模型自我认知数据集(identity.json)。
 
-> 注意修改 "PonyBot" 为你想要的模型名称，修改 "LLaMA Factory" 为作者名称。
+> 注意修改 "My-Llama-Chinese" 为你想要的模型名称，修改 "peilongchencc" 为作者名称。
 
 ```bash
-sed -i 's/{{name}}/PonyBot/g'  data/identity.json 
-sed -i 's/{{author}}/LLaMA Factory/g'  data/identity.json 
+sed -i 's/{{name}}/My-Llama-Chinese/g'  data/identity.json 
+sed -i 's/{{author}}/peilongchencc/g'  data/identity.json 
 ```
 
 你也可以选择在根目录创建一个文件(假设文件名为 `update_self_awareness.py`)，然后写入下列代码运行(`python update_self_awareness.py`):
