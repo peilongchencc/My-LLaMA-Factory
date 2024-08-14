@@ -41,7 +41,7 @@ LLaMA-Factory/data/dataset_info.json
     "file_name": "identity.json"
   },
   "nurse_patient_data": {
-    "file_name": "nurse_patient_data.json"
+    "file_name": "nurse_patient_data.json"  // 这里!关注这里!
   },
   "alpaca_en_demo": {
     "file_name": "alpaca_en_demo.json"
