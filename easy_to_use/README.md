@@ -6,6 +6,7 @@
     - [1. GPU选择](#1-gpu选择)
     - [2. HF账号创建Token，获取模型拉取权限](#2-hf账号创建token获取模型拉取权限)
   - [程序启动:](#程序启动)
+  - [测试模型:](#测试模型)
   - [Tips:](#tips)
   - [附录:](#附录)
     - [Colab如何如何登陆HF:](#colab如何如何登陆hf)
@@ -33,7 +34,7 @@ A100 运行 `GLM-4-9B-Chat` 时的资源占用为:<br>
 
 ## 程序启动:
 
-依次运行 `llama_factory_ui.ipynb` 中的代码即可，运行最后一行后，会显示如下内容:<br>
+依次运行当前文件夹下 `llama_factory_ui.ipynb` 中的代码即可，运行最后一行后，会显示如下内容:<br>
 
 ```log
 Running on local URL:  http://0.0.0.0:7860
@@ -43,6 +44,11 @@ Running on public URL: https://76bf0da76553726113.gradio.live
 点击 `https://76bf0da76553726113.gradio.live` 即可访问 LLaMA Board 界面。效果如下:<br>
 
 ![](../docs/加载GLM-4-9B-Chat.jpg)
+
+
+## 测试模型:
+
+点击 "Chat" --> "加载模型"，等待模型下载、模型加载，然后输入内容测试效果。
 
 
 ## Tips:

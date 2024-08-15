@@ -50,10 +50,11 @@
 
 ## 2. 将数据集放到LLaMA-Factory/data目录下:
 
-只有将数据集放到 `LLaMA-Factory/data` 目录下，项目才能检索到。例如笔者使用的 `nurse_patient_data.json` 最终路径为:
+只有将数据集放到 `LLaMA-Factory/data` 目录下，项目才能检索到。例如笔者使用的数据最终路径为:
 
 ```log
-LLaMA-Factory/data/nurse_patient_data.json
+LLaMA-Factory/data/nurse_patient_data_train.json
+LLaMA-Factory/data/nurse_patient_data_test.json
 ```
 
 
@@ -67,15 +68,18 @@ LLaMA-Factory/data/nurse_patient_data.json
 LLaMA-Factory/data/dataset_info.json
 ```
 
-以笔者使用的 `nurse_patient_data.json` 为例，修改方式如下:
+以笔者使用的数据为例，修改方式如下:
 
 ```json
 {
   "identity": {
     "file_name": "identity.json"
   },
-  "nurse_patient_data": {
-    "file_name": "nurse_patient_data.json"  // 这里!关注这里!
+  "nurse_patient_data_train": {
+    "file_name": "nurse_patient_data_train.json"  // 这里!关注这里!
+  },
+  "nurse_patient_data_test": {
+    "file_name": "nurse_patient_data_test.json"  // 这里!关注这里!
   },
   "alpaca_en_demo": {
     "file_name": "alpaca_en_demo.json"
