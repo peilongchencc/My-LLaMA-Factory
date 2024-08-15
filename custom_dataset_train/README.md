@@ -285,6 +285,8 @@ https://github.com/THUDM/GLM-4/blob/main/basic_demo/trans_cli_demo.py
 
 [glm4_stream_web_demo.py](../utils/glm4_stream_web_demo.py)
 
+![](../docs/GLM4官方web效果.png)
+
 GLM4官网代码链接:
 
 ```log
