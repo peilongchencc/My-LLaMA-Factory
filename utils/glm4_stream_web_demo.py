@@ -62,37 +62,6 @@ class StopOnTokens(StoppingCriteria):
                 return True
         return False  # 否则继续生成
 
-# 解析输入文本，将Markdown格式的代码块转为HTML代码，并转义特殊字符
-def parse_text(text):
-    lines = text.split("\n")  # 按行分割输入文本
-    lines = [line for line in lines if line != ""]  # 移除空行
-    count = 0  # 代码块计数器，用于判断代码块的开闭
-    for i, line in enumerate(lines):
-        if "```" in line:  # 检查行是否包含代码块标记
-            count += 1  # 每遇到一个代码块标记计数器加1
-            items = line.split('`')  # 分割行中的代码标记
-            if count % 2 == 1:  # 如果是奇数次代码块标记，表示代码块开始
-                lines[i] = f'<pre><code class="language-{items[-1]}">'  # 添加HTML代码块开始标签
-            else:  # 偶数次代码块标记，表示代码块结束
-                lines[i] = f'<br></code></pre>'  # 添加HTML代码块结束标签
-        else:
-            if i > 0 and count % 2 == 1:  # 如果在代码块内，转义特殊字符
-                line = line.replace("`", "\`")
-                line = line.replace("<", "&lt;")
-                line = line.replace(">", "&gt;")
-                line = line.replace(" ", "&nbsp;")
-                line = line.replace("*", "&ast;")
-                line = line.replace("_", "&lowbar;")
-                line = line.replace("-", "&#45;")
-                line = line.replace(".", "&#46;")
-                line = line.replace("!", "&#33;")
-                line = line.replace("(", "&#40;")
-                line = line.replace(")", "&#41;")
-                line = line.replace("$", "&#36;")
-            lines[i] = "<br>" + line  # 非代码块内容前添加换行标签
-    text = "".join(lines)  # 将处理后的行重新组合成完整的文本
-    return text  # 返回处理后的文本
-
 # 预测函数，根据历史记录和用户输入生成新的回复
 # 参数：
 # - history: 聊天历史记录
@@ -179,7 +148,7 @@ with gr.Blocks() as demo:
     # 返回值：
     # - 清空的输入框（返回空字符串）和更新的历史记录
     def user(query, history):
-        return "", history + [[parse_text(query), ""]]  # 解析用户输入并将其添加到历史记录中
+        return "", history + [[query, ""]]
 
     # 定义设置prompt的处理函数
     # 参数：
@@ -187,7 +156,7 @@ with gr.Blocks() as demo:
     # 返回值：
     # - 更新后的聊天记录，显示成功设置prompt的消息
     def set_prompt(prompt_text):
-        return [[parse_text(prompt_text), "成功设置prompt"]]  # 设置prompt并返回成功消息
+        return [[prompt_text, "成功设置prompt"]]
 
     # 将设置prompt按钮的点击事件与set_prompt函数绑定
     pBtn.click(set_prompt, inputs=[prompt_input], outputs=chatbot)
