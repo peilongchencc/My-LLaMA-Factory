@@ -39,7 +39,12 @@ pip install -e ".[torch,metrics]"
 > 笔者的服务器连接不到hugging_face，所以使用的魔搭。
 
 ```bash
+# 终端临时启用从 ModelScope Hub 获取模型
 export USE_MODELSCOPE_HUB=1
+```
+
+```bash
+# 安装或升级modelscope
 pip install modelscope -U
 ```
 
