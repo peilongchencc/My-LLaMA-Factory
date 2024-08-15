@@ -15,6 +15,7 @@
   - [10. 模型评估:](#10-模型评估)
   - [11. 新模型测试:](#11-新模型测试)
   - [12. 模型导出:](#12-模型导出)
+  - [13. 项目内嵌、模型推理:](#13-项目内嵌模型推理)
 
 
 ## 1. 环境配置、依赖项安装:
@@ -262,3 +263,32 @@ llamafactory-cli webui
 ## 12. 模型导出:
 
 ![](../docs/模型导出_完整.png)
+
+
+## 13. 项目内嵌、模型推理:
+
+模型导出后，很多时候我们需要在自己的项目中运行模型进行推理，而不是将 llama-factory 的代码整个嵌入自己的项目。
+
+以笔者使用的 `glm-4-9b-chat` 模型为例，我们需要去模型对应的官网找到推理代码，然后进行调用。例如:
+
+使用 transformers 后端以命令行进行 `glm-4-9b-chat` 模型推理(流式输出):
+
+[glm4_stream_cli_demo.py](../utils/glm4_stream_cli_demo.py)
+
+官网代码链接:
+
+```log
+https://github.com/THUDM/GLM-4/blob/main/basic_demo/trans_cli_demo.py
+```
+
+使用 transformers 后端以web界面(Gradio驱动)进行 `glm-4-9b-chat` 模型推理(流式输出):
+
+[glm4_stream_web_demo.py](../utils/glm4_stream_web_demo.py)
+
+官网代码链接:
+
+```log
+https://github.com/THUDM/GLM-4/blob/main/basic_demo/trans_web_demo.py
+```
+
+注意⚠️: 运行上述代码时，记得将模型路径修改为你自己的路径。
