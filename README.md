@@ -22,7 +22,6 @@ utils文件夹下文件解释:
 |--------------|----------------|---------------------|
 | split_dataset.py          | 切分数据集     | 用于Alpaca格式    |
 | update_self_awareness.py          | 更新模型自我认知数据集     | 注意修改文件中的模型名称、作者名称    |
-| update_self_awareness.py          | 更新模型自我认知数据集     | 注意修改文件中的模型名称、作者名称    |
 | glm4_stream_cli_demo.py          | transformers 后端以命令行进行模型推理     | 流式输出    |
 | glm4_stream_web_demo.py          | transformers 后端以web界面进行模型推理     | 流式输出    |
 
