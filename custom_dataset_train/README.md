@@ -119,9 +119,9 @@ with open("data/identity.json", "w", encoding="utf-8") as f:
 
 数据集可参考当前项目文件的data模块:
 
-[训练集](..data/nurse_patient_data_train.json)。
+[训练集-nurse_patient_data_train.json](..data/nurse_patient_data_train.json)
 
-[测试集](..data/nurse_patient_data_test.json)。
+[测试集-nurse_patient_data_test.json](..data/nurse_patient_data_test.json)
 
 > [!CAUTION]
 > llama-factory需要自己划分数据集，"split" 参数是用来定位 HF 或 魔搭 中已划分好的数据集的。
