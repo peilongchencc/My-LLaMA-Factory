@@ -11,7 +11,41 @@
 
 ## 1. 准备自定义数据集:
 
-数据集可参考当前项目文件的data[模块](../data/nurse_patient_data.json)。
+数据集可参考当前项目文件的data模块:
+
+[训练集](..data/nurse_patient_data_train.json)。
+
+[测试集](..data/nurse_patient_data_test.json)。
+
+> [!CAUTION]
+> llama-factory需要自己划分数据集，"split" 参数是用来定位 HF 或 魔搭 中已划分好的数据集的。
+
+例如llama-factory中 `data/dataset_info.json` 的下列内容:
+
+```json
+{
+  "adgen_train": {
+    "hf_hub_url": "HasturOfficial/adgen",
+    "ms_hub_url": "AI-ModelScope/adgen",
+    "split": "train",
+    "columns": {
+      "prompt": "content",
+      "response": "summary"
+    }
+  },
+  "adgen_eval": {
+    "hf_hub_url": "HasturOfficial/adgen",
+    "ms_hub_url": "AI-ModelScope/adgen",
+    "split": "validation",
+    "columns": {
+      "prompt": "content",
+      "response": "summary"
+    }
+  }
+}
+```
+
+![](../docs/adgen数据集结构.png)
 
 
 ## 2. 将数据集放到LLaMA-Factory/data目录下:

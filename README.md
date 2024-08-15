@@ -17,6 +17,12 @@ LLaMA-Factory使用经验记录。
 | custom_dataset_train          | 使用自定义数据集训练模型     | Colab方式    |
 | custom_dataset_train_remote          | 使用自定义数据集训练模型     | 服务器启动UI方式    |
 
+utils文件夹下文件解释:
+
+| 文件名称   | 作用           | 备注                |
+|--------------|----------------|---------------------|
+| split_dataset.py          | 切分数据集     | 用于Alpaca格式    |
+
 
 ## 鸣谢:
 
