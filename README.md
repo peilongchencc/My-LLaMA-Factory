@@ -4,6 +4,7 @@ LLaMA-Factory使用经验记录。
 
 - [My-LLaMA-Factory](#my-llama-factory)
   - [文件简介:](#文件简介)
+  - [项目依赖:](#项目依赖)
   - [鸣谢:](#鸣谢)
 
 ## 文件简介:
@@ -24,6 +25,24 @@ utils文件夹下文件解释:
 | update_self_awareness.py          | 更新模型自我认知数据集     | 注意修改文件中的模型名称、作者名称    |
 | glm4_stream_cli_demo.py          | transformers 后端以命令行进行模型推理     | 流式输出    |
 | glm4_stream_web_demo.py          | transformers 后端以web界面进行模型推理     | 流式输出    |
+
+
+## 项目依赖:
+
+```markdown
+(myenv) root@ubuntu22:/data/LLaMA-Factory-main# llamafactory-cli env
+
+- `llamafactory` version: 0.8.4.dev0
+- Platform: Linux-6.2.0-35-generic-x86_64-with-glibc2.35
+- Python version: 3.11.9
+- PyTorch version: 2.4.0+cu121 (GPU)
+- Transformers version: 4.43.4
+- Datasets version: 2.20.0
+- Accelerate version: 0.32.0
+- PEFT version: 0.12.0
+- TRL version: 0.9.6
+- GPU type: NVIDIA A100-PCIE-40GB
+```
 
 
 ## 鸣谢:
