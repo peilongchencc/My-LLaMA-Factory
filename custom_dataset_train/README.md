@@ -275,7 +275,7 @@ llamafactory-cli webui
 
 [glm4_stream_cli_demo.py](../utils/glm4_stream_cli_demo.py)
 
-官网代码链接:
+GLM4官网代码链接:
 
 ```log
 https://github.com/THUDM/GLM-4/blob/main/basic_demo/trans_cli_demo.py
@@ -285,7 +285,7 @@ https://github.com/THUDM/GLM-4/blob/main/basic_demo/trans_cli_demo.py
 
 [glm4_stream_web_demo.py](../utils/glm4_stream_web_demo.py)
 
-官网代码链接:
+GLM4官网代码链接:
 
 ```log
 https://github.com/THUDM/GLM-4/blob/main/basic_demo/trans_web_demo.py
