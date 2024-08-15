@@ -124,6 +124,12 @@ llamafactory-cli webui
 
 ![](../docs/魔搭拉取模型进度条.png)
 
+拉取的模型会存储在 `/root/.cache/` 目录下，例如笔者从modelscope拉取 `glm-4-9b-chat` 模型，则模型存储路径为:
+
+```log
+/root/.cache/modelscope/hub/ZhipuAI/glm-4-9b-chat
+```
+
 拉取成功后可以测试下是否可以正常聊天:
 
 ![](../docs/测试是否可以正常聊天.png)
