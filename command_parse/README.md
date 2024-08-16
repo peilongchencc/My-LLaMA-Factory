@@ -43,6 +43,8 @@ entry_points={
 
 具体来说，下列代码会自动生成一个 **可执行文件** 。这是 `pip` 处理 `console_scripts` 时的标准行为:
 
+> 先不用想 "可执行文件" 是什么，后面会讲。
+
 ```python
 entry_points={
     'console_scripts': [
