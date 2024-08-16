@@ -1,8 +1,8 @@
-# 命令分析
+# llamafactory-cli 命令执行逻辑分析
 
 本章介绍为什么在安装了 LLaMA Factory 后，用户可以在终端操作使用 `llamafactory-cli` 命令，以及 `llamafactory-cli` 命令的执行逻辑。
 
-- [命令分析](#命令分析)
+- [llamafactory-cli 命令执行逻辑分析](#llamafactory-cli-命令执行逻辑分析)
   - [llamafactory-cli 命令可以使用的原因:](#llamafactory-cli-命令可以使用的原因)
     - [entry\_points 的作用:](#entry_points-的作用)
       - [setup.py 文件中的 entry\_points:](#setuppy-文件中的-entry_points)
