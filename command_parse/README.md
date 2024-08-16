@@ -41,7 +41,7 @@ entry_points={
 
 当使用 `pip install -e .` 命令时，`setup.py` 文件中定义的命令行工具会被安装到系统的 PATH 中，使得可以直接在终端中使用。
 
-具体来说，下列代码会自动生成一个 **可执行文件** 。这是 `pip` 处理 `console_scripts` 时的标准行为:
+具体来说，下列代码会自动生成一个 **可执行文件** ，你终端突然就可以使用 `llamafactory-cli` 指令了:
 
 > 先不用想 "可执行文件" 是什么，后面会讲。
 
@@ -53,7 +53,7 @@ entry_points={
 },
 ```
 
-生成的结果可以通过 `which` 指令查看，例如:
+这是 `pip` 处理 `console_scripts` 时的标准行为，生成的结果可以通过 `which` 指令查看，例如:
 
 ```bash
 # Linux系统可用
@@ -77,7 +77,7 @@ which llamafactory-cli
 /home/vipuser/miniconda3/envs/myenv/bin/python
 ```
 
-看出来了吧，这个 **可执行文件** 其实就是一个 **python解释器**，只是还有一些额外功能。例如:
+🚀看出来了吧，这个 **可执行文件** 其实就是一个 **python解释器**，只是还有一些额外功能。例如:
 
 - 导入 `llamafactory.cli` 模块
 - 执行 `main()` 函数
