@@ -7,6 +7,7 @@
     - [`entry_points` 的作用:](#entry_points-的作用)
       - [`setup.py` 文件中的 `entry_points`:](#setuppy-文件中的-entry_points)
   - [执行`pip install -e .`后具体发生了什么:](#执行pip-install--e-后具体发生了什么)
+  - [指令执行逻辑:](#指令执行逻辑)
   - [`llamafactory/cli.py`文件注释版(可选):](#llamafactoryclipy文件注释版可选)
     - [关键组件:](#关键组件)
   - [举例-终端运行`llamafactory-cli help`:](#举例-终端运行llamafactory-cli-help)
@@ -79,7 +80,8 @@ which llamafactory-cli
 - 导入 `llamafactory.cli` 模块
 - 执行 `main()` 函数
 
-指令执行过程:
+
+## 指令执行逻辑:
 
 当你在终端输入 `llamafactory-cli` 时：
 
@@ -246,7 +248,7 @@ def main():
 
 ## 举例-终端运行`llamafactory-cli help`:
 
-讲了那么多，现在为代码添加一下 `print`，验证下前面讲的内容。可以按照以下方式修改 `llamafactory/cli.py` 中的代码:
+讲了那么多，现在为代码添加一下 `print`，验证下前面讲的内容。读者可以按照以下方式修改 `llamafactory/cli.py` 中的代码:
 
 ```python
 # llamafactory/cli.py
@@ -262,7 +264,7 @@ def main():
     # 其他代码省略
 ```
 
-终端效果:
+当终端运行`llamafactory-cli help`时:
 
 ```log
 (myenv) root@ubuntu22:/data/LLaMA-Factory-main# llamafactory-cli help
@@ -280,6 +282,15 @@ sys.argv.pop(1)为:help，类型:<class 'str'>
 |   llamafactory-cli version: show version info                      |
 ----------------------------------------------------------------------
 (myenv) root@ubuntu22:/data/LLaMA-Factory-main# 
+```
+
+从代码中可以看出，触发了下列逻辑:
+
+```python
+# 其他代码省略
+    elif command == Command.HELP:
+        print(USAGE)  # 显示使用帮助信息
+# 其他代码省略
 ```
 
 
