@@ -10,7 +10,7 @@
   - [指令执行逻辑:](#指令执行逻辑)
   - [`llamafactory/cli.py`文件注释版(可选):](#llamafactoryclipy文件注释版可选)
     - [关键组件:](#关键组件)
-  - [举例-终端运行"llamafactory-cli help":](#举例-终端运行llamafactory-cli-help)
+    - [举例-终端运行"llamafactory-cli help":](#举例-终端运行llamafactory-cli-help)
   - [附录: sys.argv 用法解释](#附录-sysargv-用法解释)
 
 
@@ -247,8 +247,7 @@ def main():
 
     - 如果你想查看每个子命令具体做了什么，可以深入到这些子命令所对应的函数（如 `run_web_ui()`）的实现文件中去。
 
-
-## 举例-终端运行"llamafactory-cli help":
+### 举例-终端运行"llamafactory-cli help":
 
 讲了那么多，现在为代码添加一下 `print`，验证下前面讲的内容。读者可以按照以下方式修改 `llamafactory/cli.py` 中的代码:
 
