@@ -77,7 +77,7 @@ which llamafactory-cli
 /home/vipuser/miniconda3/envs/myenv/bin/python
 ```
 
-看出来了吧，这其实就是一个 **python解释器**，只是还有一些额外功能。例如:
+看出来了吧，这个 **可执行文件** 其实就是一个 **python解释器**，只是还有一些额外功能。例如:
 
 - 导入 `llamafactory.cli` 模块
 - 执行 `main()` 函数
