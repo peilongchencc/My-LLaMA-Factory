@@ -1,6 +1,6 @@
 # 命令分析
 
-本章介绍为什么在安装了 LLaMA Factory 后，用户可以在终端操作使用 `llamafactory-cli` 命令。
+本章介绍为什么在安装了 LLaMA Factory 后，用户可以在终端操作使用 `llamafactory-cli` 命令，以及 `llamafactory-cli` 命令的执行逻辑。
 
 - [命令分析](#命令分析)
   - [llamafactory-cli 命令可以使用的原因:](#llamafactory-cli-命令可以使用的原因)
@@ -294,6 +294,8 @@ sys.argv.pop(1)为:help，类型:<class 'str'>
         print(USAGE)  # 显示使用帮助信息
 # 其他代码省略
 ```
+
+这下你应该更加理解 `llamafactory-cli` 命令的执行逻辑了吧。
 
 
 ## 附录: sys.argv 用法解释
