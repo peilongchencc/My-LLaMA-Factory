@@ -3,24 +3,24 @@
 本章介绍为什么在安装了 LLaMA Factory 后，用户可以在终端操作使用 `llamafactory-cli` 命令。
 
 - [命令分析](#命令分析)
-  - [`llamafactory-cli` 命令可以使用的原因:](#llamafactory-cli-命令可以使用的原因)
-    - [`entry_points` 的作用:](#entry_points-的作用)
-      - [`setup.py` 文件中的 `entry_points`:](#setuppy-文件中的-entry_points)
-  - [执行`pip install -e .`后具体发生了什么:](#执行pip-install--e-后具体发生了什么)
+  - [llamafactory-cli 命令可以使用的原因:](#llamafactory-cli-命令可以使用的原因)
+    - [entry\_points 的作用:](#entry_points-的作用)
+      - [setup.py 文件中的 entry\_points:](#setuppy-文件中的-entry_points)
+  - [执行"pip install -e ."后具体发生了什么:](#执行pip-install--e-后具体发生了什么)
   - [指令执行逻辑:](#指令执行逻辑)
   - [`llamafactory/cli.py`文件注释版(可选):](#llamafactoryclipy文件注释版可选)
     - [关键组件:](#关键组件)
-  - [举例-终端运行`llamafactory-cli help`:](#举例-终端运行llamafactory-cli-help)
+  - [举例-终端运行"llamafactory-cli help":](#举例-终端运行llamafactory-cli-help)
   - [附录: sys.argv 用法解释](#附录-sysargv-用法解释)
 
 
-## `llamafactory-cli` 命令可以使用的原因:
+## llamafactory-cli 命令可以使用的原因:
 
-### `entry_points` 的作用:
+### entry_points 的作用:
 
 在 Python 项目中，`setup.py` 文件（或 `pyproject.toml` 文件）通常用于定义如何安装和配置这个包。`entry_points` 是 `setup.py` 文件中的一个配置选项，它允许你定义命令行工具，这些工具在安装后可以直接从终端调用。
 
-#### `setup.py` 文件中的 `entry_points`:
+#### setup.py 文件中的 entry_points:
 
 ```python
 entry_points={
@@ -37,7 +37,7 @@ entry_points={
 > 寻找指定模块中的制定对象(函数)时固定要用冒号进行分隔。
 
 
-## 执行`pip install -e .`后具体发生了什么:
+## 执行"pip install -e ."后具体发生了什么:
 
 当使用 `pip install -e .` 命令时，`setup.py` 文件中定义的命令行工具会被安装到系统的 PATH 中，使得可以直接在终端中使用。
 
@@ -246,7 +246,7 @@ def main():
     - 如果你想查看每个子命令具体做了什么，可以深入到这些子命令所对应的函数（如 `run_web_ui()`）的实现文件中去。
 
 
-## 举例-终端运行`llamafactory-cli help`:
+## 举例-终端运行"llamafactory-cli help":
 
 讲了那么多，现在为代码添加一下 `print`，验证下前面讲的内容。读者可以按照以下方式修改 `llamafactory/cli.py` 中的代码:
 
