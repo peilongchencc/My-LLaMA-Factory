@@ -34,7 +34,7 @@ entry_points={
 
 > [!CAUTION]
 > 模块路径使用`.`，采用的是python模块导入的标准表示法，即 `import llamafactory.cli`。
-> 寻找指定模块中的制定对象(函数)时固定要用冒号进行分隔。
+> 寻找指定模块中的对象(函数)时固定要用冒号进行分隔。
 
 
 ## 执行"pip install -e ."后具体发生了什么:
