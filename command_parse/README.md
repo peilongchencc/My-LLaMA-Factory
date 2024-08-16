@@ -7,7 +7,7 @@
     - [entry\_points 的作用:](#entry_points-的作用)
       - [setup.py 文件中的 entry\_points:](#setuppy-文件中的-entry_points)
   - [执行"pip install -e ."后具体发生了什么:](#执行pip-install--e-后具体发生了什么)
-  - [指令执行逻辑:](#指令执行逻辑)
+  - [llamafactory-cli 命令执行逻辑:](#llamafactory-cli-命令执行逻辑)
   - [`llamafactory/cli.py`文件注释版(可选):](#llamafactoryclipy文件注释版可选)
     - [关键组件:](#关键组件)
     - [举例-终端运行"llamafactory-cli help":](#举例-终端运行llamafactory-cli-help)
@@ -83,7 +83,7 @@ which llamafactory-cli
 - 执行 `main()` 函数
 
 
-## 指令执行逻辑:
+## llamafactory-cli 命令执行逻辑:
 
 当你在终端输入 `llamafactory-cli` 时：
 
