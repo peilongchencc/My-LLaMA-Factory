@@ -9,13 +9,14 @@ LLaMA-Factory使用经验记录。
 
 ## 文件简介:
 
-| 文件夹名称              | 作用                               | 训练方式 | 备注                      |
-|-------------------------|------------------------------------|----------|---------------------------|
-| data                    | 数据集示例                         |      |                           |
-| data_structure          | 数据集格式解释                     |      | 仅介绍Alpaca格式          |
-| easy_to_use             | 直接加载模型进行测试，体验LLaMA-Factory的使用 |      | Colab方式                 |
-| easy_to_train_model     | 使用项目本身数据集训练模型         | LoRA     | Colab方式                 |
-| custom_dataset_train    | 使用自定义数据集训练模型           | LoRA     | 服务器启动UI方式          |
+| 文件夹名称                | 作用                                    | 训练方式   | 备注                        |
+|-------------------------|-----------------------------------------|----------|-----------------------------|
+| data                    | 数据集示例                                |          |                             |
+| data_structure          | 数据集格式解释                             |          | 仅介绍Alpaca格式              |
+| easy_to_use             | 直接加载模型进行测试，体验LLaMA-Factory的使用 |          | Colab方式                    |
+| easy_to_train_model     | 使用项目本身数据集训练模型                   | LoRA     | Colab方式                    |
+| custom_dataset_train    | 使用自定义数据集训练模型                     | LoRA     | 服务器启动UI方式               |
+| command_parse           | 讲解为什么`llamafactory-cli`命令可用        |           | 追踪到代码层，确定命令对应的代码 |
 
 **utils文件夹下文件解释:**
 
