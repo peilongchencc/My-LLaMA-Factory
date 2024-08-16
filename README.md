@@ -17,6 +17,7 @@ LLaMA-Factory使用经验记录。
 | easy_to_train_model     | 使用项目本身数据集训练模型                   | LoRA     | Colab方式                    |
 | custom_dataset_train    | 使用自定义数据集训练模型                     | LoRA     | 服务器启动UI方式               |
 | command_parse           | 讲解`llamafactory-cli`命令的执行逻辑        |           | 追踪到代码层，确定命令对应的代码 |
+| how_to_debug            | 介绍如何通过debug方式启动llamafactory       |           | 笔者使用的vscode              |
 
 **utils文件夹下文件解释:**
 
