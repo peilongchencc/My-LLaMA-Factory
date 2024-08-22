@@ -29,6 +29,10 @@
     - [情况描述:](#情况描述)
     - [解决方案:](#解决方案)
     - [额外建议:](#额外建议)
+  - [程序kill但GPU利用率没有清空解决方案(可选):](#程序kill但gpu利用率没有清空解决方案可选)
+    - [1. 动态检查显卡状态:](#1-动态检查显卡状态)
+    - [2. 查看是否有使用CUDA的进程:](#2-查看是否有使用cuda的进程)
+    - [3. 启用 GPU 持久化模式:](#3-启用-gpu-持久化模式)
 
 
 ## 前言(可选):
@@ -594,3 +598,121 @@ rm -rf /root/.cache/modelscope/hub/ZhipuAI/glm-4-9b-chat
 ### 额外建议:
 
 如果频繁遇到这种下载失败的问题，可能需要考虑在 Docker 容器外先下载并验证模型文件，然后将它们复制到容器中，以避免在每次部署时重复下载。
+
+
+## 程序kill但GPU利用率没有清空解决方案(可选):
+
+当你停掉了自己的程序，但发现GPU利用率还是没有清零。例如:
+
+```log
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# nvidia-smi
+Thu Aug 22 17:08:59 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.113.01             Driver Version: 535.113.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-PCIE-40GB          Off | 00000000:00:08.0 Off |                    0 |
+| N/A   34C    P0              35W / 250W |      4MiB / 40960MiB |     42%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda#
+```
+
+### 1. 动态检查显卡状态:
+
+终端输入以下指令，动态检查显卡状态，防止错误清理他人程序。
+
+```bash
+# 每1秒检测下GPU变化
+watch -n 1 nvidia-smi
+```
+
+### 2. 查看是否有使用CUDA的进程:
+
+终端输入以下指令，查看是否有使用CUDA的进程。
+
+```bash
+ps -aux | grep cuda
+```
+
+终端显示:
+
+```log
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# ps -aux | grep cuda
+root       24537  0.0  0.0  12188  2432 pts/8    S+   17:26   0:00 grep --color=auto cuda
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
+```
+
+结果显示了一个正在运行的进程：`grep --color=auto cuda`。这实际上是刚刚执行的 `grep cuda` 命令本身(grep 命令会查找自身的)。
+
+### 3. 启用 GPU 持久化模式:
+
+启用 GPU 持久化模式，让GPU处于稳定模型。
+
+```bash
+nvidia-smi -pm 1
+```
+
+终端显示:
+
+```log
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# nvidia-smi
+Thu Aug 22 17:08:59 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.113.01             Driver Version: 535.113.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-PCIE-40GB          Off | 00000000:00:08.0 Off |                    0 |
+| N/A   34C    P0              35W / 250W |      4MiB / 40960MiB |     42%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# ps -aux | grep cuda
+root       24411  0.0  0.0  12188  2432 pts/8    S+   17:09   0:00 grep --color=auto cuda
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# nvidia-smi -pm 1
+Enabled persistence mode for GPU 00000000:00:08.0.
+All done.
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# nvidia-smi
+Thu Aug 22 17:18:05 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.113.01             Driver Version: 535.113.01   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-PCIE-40GB          On  | 00000000:00:08.0 Off |                    0 |
+| N/A   32C    P0              35W / 250W |      4MiB / 40960MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda#
+```
