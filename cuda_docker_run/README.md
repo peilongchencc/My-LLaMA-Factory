@@ -13,6 +13,7 @@
   - [进入llamafactory容器操作:](#进入llamafactory容器操作)
   - [配置使用魔搭社区下载模型(可选):](#配置使用魔搭社区下载模型可选)
   - [启动 LLaMA Board 可视化微调（由 Gradio 驱动）:](#启动-llama-board-可视化微调由-gradio-驱动)
+  - [数据卷详情:](#数据卷详情)
   - [无法以Docker方式启动llamafactory解决方案(可选):](#无法以docker方式启动llamafactory解决方案可选)
     - [方法一: nvidia官方提供的安装方式:](#方法一-nvidia官方提供的安装方式)
       - [1. 配置代码仓库:](#1-配置代码仓库)
@@ -353,6 +354,19 @@ model.safetensors.index.json: 100%|███████████████
 Downloading shards:   0%|                                                                                                                                           | 0/10 [00:00<?, ?it/s]
 model-00001-of-00010.safetensors:  92%|███████████████████████████████████████████████████████████████████████████████████████████████████████▏        | 1.79G/1.95G [03:27<04:07, 614kB/s]
 ```
+
+
+## 数据卷详情:
+
+- `hf_cache`：使用宿主机的 Hugging Face 缓存文件夹，允许更改为新的目录。
+
+- `ms_cache`：类似 Hugging Face 缓存文件夹，为 ModelScope 用户提供。
+
+- `data`：宿主机中存放数据集的文件夹路径。
+
+- `output`：将导出目录设置为该路径后，即可在宿主机中访问导出后的模型。
+
+如果你不了解数据卷的概念，建议查看笔者的[Docerfile 语法教程](https://github.com/peilongchencc/docker_tutorial/tree/main/dockerfile_command#docker-composeyml%E4%B8%AD%E7%9A%84volumes%E5%8F%AF%E9%80%89)。
 
 
 ## 无法以Docker方式启动llamafactory解决方案(可选):
