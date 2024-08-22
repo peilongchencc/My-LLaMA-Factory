@@ -121,7 +121,7 @@ services:
 > 修改 `docker-compose.yml` 中的 `args` 会覆盖或扩充 `Dockerfile` 中的 `ARG` 参数。
 
 > [!TIP]
-> 终极方案: 找个能拉取下来镜像的人，让他把镜像压缩为tar发给你😎
+> 终极方案: 如果各种方式尝试了都无法拉取，就找个能拉取下来镜像的人，让他把镜像压缩为tar发给你😎
 
 终端示例:
 
@@ -135,107 +135,6 @@ services:
  => => transferring context: 147B                                                                                                                                                     0.0s
  => [llamafactory 1/7] FROM nvcr.io/nvidia/pytorch:24.02-py3@sha256:69c54ea51853c57b1f5abae7878a64b238fb10c177855e1c6521d7ab87fad2eb                                                660.1s
  => => resolve nvcr.io/nvidia/pytorch:24.02-py3@sha256:69c54ea51853c57b1f5abae7878a64b238fb10c177855e1c6521d7ab87fad2eb                                                               0.0s
- => => sha256:ce8cc979c12ec0f60e45b40683afc3df504bbb1e049468d546ad1728cb8dbfb4 133.33MB / 133.33MB                                                                                   17.7s
- => => sha256:69c54ea51853c57b1f5abae7878a64b238fb10c177855e1c6521d7ab87fad2eb 744B / 744B                                                                                            0.0s
- => => sha256:4de396c7c5f206dd48068eb7aa4307d615cc7584f5e2f10ea5a31eded354ecc0 10.19kB / 10.19kB                                                                                      0.0s
- => => sha256:91fc76da3ebca220d0a4230c83656f16e153d9c6eada5b164396d27da4332857 45.63kB / 45.63kB                                                                                      0.0s
- => => sha256:57c139bbda7eb92a286d974aa8fef81acf1a8cbc742242619252c13b196ab499 29.55MB / 29.55MB                                                                                      3.4s
- => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B                                                                                              0.5s
- => => sha256:b4655ab72d6645c694f68bedaa736c6ce498cee6bfc44bcfd1e83056dd591a1a 155.15MB / 155.15MB                                                                                   20.2s
- => => sha256:d70fc0fc8075b5838efe5c58c08cb2eb266526c6b099f048e37dea779668d538 15.10kB / 15.10kB                                                                                      3.9s
- => => extracting sha256:57c139bbda7eb92a286d974aa8fef81acf1a8cbc742242619252c13b196ab499                                                                                             1.4s
- => => sha256:fe8a966cb8fc5db903a157b90c4951e7d6ae80b4b39204ff3294b2e7d5926111 2.93GB / 2.93GB                                                                                      375.1s
- => => sha256:04923829d9a5eecc2e459cb9631c379f48a5959d496a72472d3497b89504a7ee 11.53kB / 11.53kB                                                                                     18.0s
- => => extracting sha256:ce8cc979c12ec0f60e45b40683afc3df504bbb1e049468d546ad1728cb8dbfb4                                                                                             5.1s
- => => sha256:7c6a9a9ea6058400785b314fc55260320b3c49563f7692f0746bd5875708fde3 180B / 180B                                                                                           18.4s
- => => sha256:dd6850141179aa89cc90f964600a4357b94e4e6a8526d2435f9fd0ae704cc4d8 5.72kB / 5.72kB                                                                                       18.7s
- => => sha256:1ba7f770c2b7186d8f77d86e4f5ff595ee91b38dc3ca00d9c9681252890d2819 139.29kB / 139.29kB                                                                                   19.1s
- => => sha256:28d2d38f5f1a3196b2915e1bc8a9211d2a33af3468981374efb317a9c9415792 31.37MB / 31.37MB                                                                                     23.4s
- => => sha256:2b069040cb644c6a0dbded7dd6d722e85549cd3da5127c6ed02b05fef66a1758 86.90MB / 86.90MB                                                                                     31.3s
- => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1                                                                                             0.0s
- => => extracting sha256:b4655ab72d6645c694f68bedaa736c6ce498cee6bfc44bcfd1e83056dd591a1a                                                                                             6.5s
- => => sha256:25a11129edd6b98ff1cc0ca09ef64207cf867177d8f158eef9ba009818ccff79 503B / 503B                                                                                           23.7s
- => => sha256:8b6652143eacb9375119af1e72181023a9a8b9996363cf22aae037d621605f6a 476.39MB / 476.39MB                                                                                   83.5s
- => => extracting sha256:d70fc0fc8075b5838efe5c58c08cb2eb266526c6b099f048e37dea779668d538                                                                                             0.0s
- => => sha256:5ae505987b0c3b9da949b6e0c104376f6107704fed64fb46822dd619ab0651af 67.14MB / 67.14MB                                                                                     40.6s
- => => sha256:af0496c76d99d20f2e99acbbf43a8fc38b69476ed97633486f282ffd11f76b6c 8.54MB / 8.54MB                                                                                       42.7s
- => => sha256:6d01c7ef99accffefe09a5041a891c17e9183b0242977760d1dd96ed06bd5b82 27.26MB / 27.26MB                                                                                     47.0s
- => => sha256:6b291f4a0909e3e6f785426db8f775cc2abcbc17819d764e1d37fcaaaa089370 12.75MB / 12.75MB                                                                                     49.3s
- => => sha256:fc45afb36fa6b0ed80f672d518c4af53d8807918e0f254b466a89efe6858881b 114B / 114B                                                                                           49.6s
- => => sha256:659de15fb9cb806b60673fe9410d3a1bba52c963b5208a0a055395f4252316cc 488.86MB / 488.86MB                                                                                  114.8s
- => => sha256:9507c73dfe60d8f0a52ef9d794bd89950d81c32e98f27c85cf25b9e727e64310 643.26MB / 643.26MB                                                                                  164.9s
- => => sha256:e49b9068ff39a9b99549bee050cfc8cd6d88c9d79a5d53ab69ea62d991ee48f7 54.29MB / 54.29MB                                                                                    121.7s
- => => sha256:80329dfe43a8ce79454da8b9f7046b446f91de76a7cb752112339475bfc77c5c 8.42kB / 8.42kB                                                                                      122.1s
- => => sha256:3d6bbd8c25038085082a33738222a605317a3d05d74a4fa915ea9ec5498a4a27 69.24MB / 69.24MB                                                                                    131.3s
- => => sha256:4dae9d37c6081720ac2a8f96d095823bbf6816050acb459e2c911d7ad60fe966 467B / 467B                                                                                          131.6s
- => => sha256:ff95200a93c6dc1da367514bf4fe6035dc76d6f84d2510a484cfab174bd9cebe 15.75MB / 15.75MB                                                                                    134.3s
- => => sha256:e53cd7499a582d85501561896b7f36777a23b0e624ae0ce3f1470d4be47b823c 2.34GB / 2.34GB                                                                                      434.6s
- => => sha256:1bcb8401a3f58fb1da8e38bb98ee73c80237ab38e192b3bb02b55c7821196b42 320.40kB / 320.40kB                                                                                  165.2s
- => => sha256:2e1a99ef64a31d72ca30d7e4597138fafdd88de31e36161977f152ee041ef9e8 167.43MB / 167.43MB                                                                                  186.8s
- => => sha256:4274655c4688455bd92824909b85ba723978b1fb70ba30375f7add7b64387088 303.84MB / 303.84MB                                                                                  227.2s
- => => sha256:94e59f9b9d856e70738801a056df5ea266993b1e6c1627eef94645d304071a11 28.74MB / 28.74MB                                                                                    231.3s
- => => sha256:d5a762491a36834a4ee5531f978f356dd2940137fd5fd60b0c3bec0eea08ad9e 1.12kB / 1.12kB                                                                                      231.6s
- => => sha256:5a54e3f7004ebb31082a648b0cc3322cd455cff3a4e91b01e9bdf8f6766e62c8 470.50MB / 470.50MB                                                                                  292.0s
- => => sha256:793228fec91c06b916320a57bff9320625570a4ed6ca671cc5ba7af035fd453c 1.34MB / 1.34MB                                                                                      292.5s
- => => sha256:5d76d81b9de6fe9ab4ef31a684bb523be14ae6791937c2a3f3cd22297f42278c 61.69kB / 61.69kB                                                                                    292.8s
- => => sha256:0a712b700186574c6f625d0c07363e62ac4eb4f37fa0e5938d1cc5c7409a6ab8 1.83GB / 1.83GB                                                                                      467.3s
- => => extracting sha256:fe8a966cb8fc5db903a157b90c4951e7d6ae80b4b39204ff3294b2e7d5926111                                                                                            39.7s
- => => sha256:29d382b49364bd5af3dba7968fb364cec842299853d4f99e5f83c2f482001e2a 1.12kB / 1.12kB                                                                                      375.4s
- => => sha256:a44517dcf1730ba00caac630fb9faf541e2455e73565e9cebabac667029915bc 1.11kB / 1.11kB                                                                                      376.0s
- => => sha256:9915312acb9c4602d64fa1f4297c1518d2bf1c804393e50b64df3e29632a3b66 6.76MB / 6.76MB                                                                                      377.7s
- => => sha256:0a38a9efa24d6bed9eeaafde04eb07d6869737038afa36056071b8c638b2e0ad 30.13MB / 30.13MB                                                                                    382.1s
- => => sha256:51608a2bc20e2d07f38952642039c34da187817379a5feb21ef15e9e1fcc9137 37.03MB / 37.03MB                                                                                    387.3s
- => => sha256:9974ea02ccb08d37d08e67f39e1d0f81ff58547404a9673e43b7292bd8c0ff8e 1.57MB / 1.57MB                                                                                      387.8s
- => => sha256:e6621cbb7adf94f2d0617e884645da812d823442e2ef7880bf1e4db33a09c1c3 6.46MB / 6.46MB                                                                                      389.1s
- => => sha256:c8b807748ba0f231d48bdddf7c765bb67892c0989c589f322cfd26b884a28384 60.68MB / 60.68MB                                                                                    397.4s
- => => sha256:a021b0895cea94f6be9cac2dc2c09cf4cd02696feecf4f07bfe9c5235c74e5ba 14.81MB / 14.81MB                                                                                    399.7s
- => => sha256:f3be9d74b9ba928de56bbb0788234f5246bfe0d660efc87ecb55a7bc08589c0d 112.28MB / 112.28MB                                                                                  414.4s
- => => sha256:2c862030856eabf2823ce55609e25529de492061b5151bdc918c44868e6c4d68 109.59MB / 109.59MB                                                                                  429.6s
- => => extracting sha256:04923829d9a5eecc2e459cb9631c379f48a5959d496a72472d3497b89504a7ee                                                                                             0.0s
- => => extracting sha256:7c6a9a9ea6058400785b314fc55260320b3c49563f7692f0746bd5875708fde3                                                                                             0.0s
- => => extracting sha256:dd6850141179aa89cc90f964600a4357b94e4e6a8526d2435f9fd0ae704cc4d8                                                                                             0.0s
- => => extracting sha256:1ba7f770c2b7186d8f77d86e4f5ff595ee91b38dc3ca00d9c9681252890d2819                                                                                             0.0s
- => => extracting sha256:28d2d38f5f1a3196b2915e1bc8a9211d2a33af3468981374efb317a9c9415792                                                                                             1.4s
- => => extracting sha256:2b069040cb644c6a0dbded7dd6d722e85549cd3da5127c6ed02b05fef66a1758                                                                                             1.9s
- => => extracting sha256:25a11129edd6b98ff1cc0ca09ef64207cf867177d8f158eef9ba009818ccff79                                                                                             0.0s
- => => extracting sha256:8b6652143eacb9375119af1e72181023a9a8b9996363cf22aae037d621605f6a                                                                                             5.9s
- => => extracting sha256:5ae505987b0c3b9da949b6e0c104376f6107704fed64fb46822dd619ab0651af                                                                                             3.2s
- => => extracting sha256:af0496c76d99d20f2e99acbbf43a8fc38b69476ed97633486f282ffd11f76b6c                                                                                             1.2s
- => => sha256:d4f48aa94df98b95049d02258988f44a3c818897f8f6d6c203dcee095be28ad0 14.12kB / 14.12kB                                                                                    430.6s
- => => sha256:958e6b58ee1c83c42634b506b02571bb4f3f9f698994ca81ce285e80ffbb39c1 501B / 501B                                                                                          431.1s
- => => extracting sha256:6d01c7ef99accffefe09a5041a891c17e9183b0242977760d1dd96ed06bd5b82                                                                                             1.5s
- => => extracting sha256:6b291f4a0909e3e6f785426db8f775cc2abcbc17819d764e1d37fcaaaa089370                                                                                             0.4s
- => => extracting sha256:fc45afb36fa6b0ed80f672d518c4af53d8807918e0f254b466a89efe6858881b                                                                                             0.0s
- => => extracting sha256:659de15fb9cb806b60673fe9410d3a1bba52c963b5208a0a055395f4252316cc                                                                                            63.9s
- => => extracting sha256:9507c73dfe60d8f0a52ef9d794bd89950d81c32e98f27c85cf25b9e727e64310                                                                                            14.3s
- => => extracting sha256:e49b9068ff39a9b99549bee050cfc8cd6d88c9d79a5d53ab69ea62d991ee48f7                                                                                             3.7s
- => => extracting sha256:80329dfe43a8ce79454da8b9f7046b446f91de76a7cb752112339475bfc77c5c                                                                                             0.0s
- => => extracting sha256:3d6bbd8c25038085082a33738222a605317a3d05d74a4fa915ea9ec5498a4a27                                                                                             1.8s
- => => extracting sha256:4dae9d37c6081720ac2a8f96d095823bbf6816050acb459e2c911d7ad60fe966                                                                                             0.0s
- => => extracting sha256:ff95200a93c6dc1da367514bf4fe6035dc76d6f84d2510a484cfab174bd9cebe                                                                                             0.4s
- => => extracting sha256:e53cd7499a582d85501561896b7f36777a23b0e624ae0ce3f1470d4be47b823c                                                                                            26.1s
- => => extracting sha256:1bcb8401a3f58fb1da8e38bb98ee73c80237ab38e192b3bb02b55c7821196b42                                                                                             0.2s
- => => extracting sha256:2e1a99ef64a31d72ca30d7e4597138fafdd88de31e36161977f152ee041ef9e8                                                                                             3.1s
- => => extracting sha256:4274655c4688455bd92824909b85ba723978b1fb70ba30375f7add7b64387088                                                                                             6.5s
- => => extracting sha256:94e59f9b9d856e70738801a056df5ea266993b1e6c1627eef94645d304071a11                                                                                             1.1s
- => => extracting sha256:d5a762491a36834a4ee5531f978f356dd2940137fd5fd60b0c3bec0eea08ad9e                                                                                             0.0s
- => => extracting sha256:5a54e3f7004ebb31082a648b0cc3322cd455cff3a4e91b01e9bdf8f6766e62c8                                                                                            24.8s
- => => extracting sha256:793228fec91c06b916320a57bff9320625570a4ed6ca671cc5ba7af035fd453c                                                                                             0.5s
- => => extracting sha256:5d76d81b9de6fe9ab4ef31a684bb523be14ae6791937c2a3f3cd22297f42278c                                                                                             0.0s
- => => extracting sha256:0a712b700186574c6f625d0c07363e62ac4eb4f37fa0e5938d1cc5c7409a6ab8                                                                                            50.7s
- => => extracting sha256:29d382b49364bd5af3dba7968fb364cec842299853d4f99e5f83c2f482001e2a                                                                                             0.0s
- => => extracting sha256:a44517dcf1730ba00caac630fb9faf541e2455e73565e9cebabac667029915bc                                                                                             0.0s
- => => extracting sha256:9915312acb9c4602d64fa1f4297c1518d2bf1c804393e50b64df3e29632a3b66                                                                                             0.3s
- => => extracting sha256:0a38a9efa24d6bed9eeaafde04eb07d6869737038afa36056071b8c638b2e0ad                                                                                             0.7s
- => => extracting sha256:51608a2bc20e2d07f38952642039c34da187817379a5feb21ef15e9e1fcc9137                                                                                             0.9s
- => => extracting sha256:9974ea02ccb08d37d08e67f39e1d0f81ff58547404a9673e43b7292bd8c0ff8e                                                                                             0.1s
- => => extracting sha256:e6621cbb7adf94f2d0617e884645da812d823442e2ef7880bf1e4db33a09c1c3                                                                                             0.3s
- => => extracting sha256:c8b807748ba0f231d48bdddf7c765bb67892c0989c589f322cfd26b884a28384                                                                                             3.8s
- => => extracting sha256:a021b0895cea94f6be9cac2dc2c09cf4cd02696feecf4f07bfe9c5235c74e5ba                                                                                             0.7s
- => => extracting sha256:f3be9d74b9ba928de56bbb0788234f5246bfe0d660efc87ecb55a7bc08589c0d                                                                                             4.4s
- => => extracting sha256:2c862030856eabf2823ce55609e25529de492061b5151bdc918c44868e6c4d68                                                                                             3.3s
- => => extracting sha256:d4f48aa94df98b95049d02258988f44a3c818897f8f6d6c203dcee095be28ad0                                                                                             0.0s
- => => extracting sha256:958e6b58ee1c83c42634b506b02571bb4f3f9f698994ca81ce285e80ffbb39c1                                                                                             0.0s
  => [llamafactory internal] load build context                                                                                                                                        0.2s
  => => transferring context: 6.37MB                                                                                                                                                   0.1s
  => [llamafactory 2/7] WORKDIR /app                                                                                                                                                   3.9s
@@ -350,7 +249,7 @@ pip install modelscope -U
 
 ## 启动 LLaMA Board 可视化微调（由 Gradio 驱动）:
 
-以LLaMA Board为例演示，进一步说明Docker部署和其他方式并没有不同。
+以LLaMA Board为例演示，进一步说明Docker部署和其他方式并没有不同。🏖️
 
 终端运行以下指令开启可视化界面:
 
