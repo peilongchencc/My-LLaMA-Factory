@@ -25,7 +25,7 @@
       - [3. 解压文件:](#3-解压文件)
       - [4. 按依赖顺序安装 .deb 文件:](#4-按依赖顺序安装-deb-文件)
       - [5. 验证安装:](#5-验证安装)
-  - [modelscope.hub.errors.FileIntegrityError解决方案:](#modelscopehuberrorsfileintegrityerror解决方案)
+  - [modelscope.hub.errors.FileIntegrityError解决方案(可选):](#modelscopehuberrorsfileintegrityerror解决方案可选)
     - [情况描述:](#情况描述)
     - [解决方案:](#解决方案)
     - [额外建议:](#额外建议)
@@ -461,7 +461,7 @@ sudo apt-get install -y nvidia-container-toolkit
 https://github.com/NVIDIA/nvidia-container-toolkit/releases
 ```
 
-![](../docs/nvidia-container-toolkit.png)
+<img src="../docs/nvidia-container-toolkit.png" alt="image" width="50%" height="50%">
 
 
 #### 2. 将安装包上传到服务器:
@@ -558,7 +558,7 @@ build flags: -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -DNDEBUG -std=gnu11 -O2 -g -fdata
 现在，你已经成功安装了 NVIDIA Container Toolkit 1.16.1，并正确配置了环境。根据 `nvidia-container-cli --version` 的输出，工具包已经正确安装并可以正常使用。
 
 
-## modelscope.hub.errors.FileIntegrityError解决方案:
+## modelscope.hub.errors.FileIntegrityError解决方案(可选):
 
 ### 情况描述:
 
