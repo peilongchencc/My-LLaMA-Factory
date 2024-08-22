@@ -25,6 +25,10 @@
       - [3. 解压文件:](#3-解压文件)
       - [4. 按依赖顺序安装 .deb 文件:](#4-按依赖顺序安装-deb-文件)
       - [5. 验证安装:](#5-验证安装)
+  - [modelscope.hub.errors.FileIntegrityError解决方案:](#modelscopehuberrorsfileintegrityerror解决方案)
+    - [情况描述:](#情况描述)
+    - [解决方案:](#解决方案)
+    - [额外建议:](#额外建议)
 
 
 ## 前言(可选):
@@ -552,3 +556,41 @@ build flags: -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -DNDEBUG -std=gnu11 -O2 -g -fdata
 ```
 
 现在，你已经成功安装了 NVIDIA Container Toolkit 1.16.1，并正确配置了环境。根据 `nvidia-container-cli --version` 的输出，工具包已经正确安装并可以正常使用。
+
+
+## modelscope.hub.errors.FileIntegrityError解决方案:
+
+### 情况描述:
+
+部分读者反应，从modelscope下载模型时出现了下列错误:
+
+```log
+Downloading:   5%|████████▉                                                             | 90.0M/1.69G [00:04<01:12, 23.6MB/s]
+Downloading:  92%|███████████████████████████████████████████████▍                      | 1.56G/1.69G [01:10<00:06, 23.7MB/s]
+2024-08-22 07:12:28,588 - modelscope - WARNING - Downloading: /root/.cache/modelscope/hub/._____temp/ZhipuAI/glm-4-9b-chat/model-00008-of-00010.safetensors failed, reason: ('Connection broken: IncompleteRead(25034913 bytes read, 142737247 more expected)', IncompleteRead(25034913 bytes read, 142737247 more expected)) will retry
+2024-08-22 07:13:41,480 - modelscope - ERROR - File /root/.cache/modelscope/hub/._____temp/ZhipuAI/glm-4-9b-chat/model-00008-of-00010.safetensors integrity check failed, expected sha256 signature is 5388bffb210043271cded04b28a5fae2eeeb31b64b695b62638d9b856e322033, actual is 70468ccb2a70d92c286409e90523c14f4144ae837af06538834879a1622d8052, the download may be incomplete, please try again.
+
+modelscope.hub.errors.FileIntegrityError: File /root/.cache/modelscope/hub/._____temp/ZhipuAI/glm-4-9b-chat/model-00008-of-00010.safetensors integrity check failed, expected sha256 signature is 5388bffb210043271cded04b28a5fae2eeeb31b64b695b62638d9b856e322033, actual is 70468ccb2a70d92c286409e90523c14f4144ae837af06538834879a1622d8052, the download may be incomplete, please try again.
+```
+
+问题出在从 ModelScope 下载 `glm-4-9b-chat` 模型的部分文件失败，并导致文件的完整性检查不通过。这是由于 **网络连接问题** 🚨，导致下载不完整，最终触发的 `FileIntegrityError`。
+
+### 解决方案:
+
+1. **重试**：重新运行命令，这个大概率可以成功。
+   
+2. **清理缓存并重试**：删除部分或所有模型下载缓存，以防止使用到损坏的缓存文件：
+
+```bash
+rm -rf /root/.cache/modelscope/hub/ZhipuAI/glm-4-9b-chat
+```
+
+> 注意: 删除的是容器内的目录，而不是宿主机的目录。
+
+然后重新启动下载过程。
+
+3. **检查磁盘空间**：确认 Docker 容器的磁盘空间充足，因为大文件下载失败有时可能是由于空间不足导致的。
+
+### 额外建议:
+
+如果频繁遇到这种下载失败的问题，可能需要考虑在 Docker 容器外先下载并验证模型文件，然后将它们复制到容器中，以避免在每次部署时重复下载。
