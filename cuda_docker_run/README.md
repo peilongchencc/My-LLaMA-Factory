@@ -100,7 +100,7 @@ docker compose up -d
 https://catalog.ngc.nvidia.com/orgs/nvidia/containers/pytorch
 ```
 
-‼️如果卡在 `pip install` 的位置报错了，就`docker-compose.yml`中的`PIP_INDEX`修改为国内pypi源。例如:
+‼️如果卡在 `pip install` 的位置报错了，可以将`docker-compose.yml`中的`PIP_INDEX`修改为国内pypi源。例如:
 
 > 别担心pytorch会重新下载，pytorch镜像如果拉取成功了，重新运行`docker compose up -d`会直接从pip的地方开始运行。
 
