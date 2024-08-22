@@ -201,6 +201,8 @@ CONTAINER ID   IMAGE                                                            
 docker compose exec llamafactory bash
 ```
 
+> 注意: 上述指令需要在 `docker-compose.yml` 所在目录运行。
+
 终端示例:
 
 ```bash
