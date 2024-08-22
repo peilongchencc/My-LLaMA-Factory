@@ -1,6 +1,6 @@
 # My-LLaMA-Factory
 
-LLaMA-Factory使用经验记录。
+LLaMA-Factory使用经验记录，请查看 **文件简介** 根据个人情况，选择合适的内容学习。
 
 - [My-LLaMA-Factory](#my-llama-factory)
   - [文件简介:](#文件简介)
