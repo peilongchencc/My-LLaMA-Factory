@@ -461,7 +461,7 @@ sudo apt-get install -y nvidia-container-toolkit
 https://github.com/NVIDIA/nvidia-container-toolkit/releases
 ```
 
-<img src="../docs/nvidia-container-toolkit.png" alt="image" width="50%" height="50%">
+<img src="../docs/nvidia-container-toolkit.png" alt="image" width="70%" height="70%">
 
 
 #### 2. 将安装包上传到服务器:
