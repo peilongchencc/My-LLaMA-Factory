@@ -250,6 +250,27 @@ export USE_MODELSCOPE_HUB=1
 pip install modelscope -U
 ```
 
+终端示例:
+
+```log
+root@cece9e2b3716:/app# export USE_MODELSCOPE_HUB=1
+root@cece9e2b3716:/app# pip install modelscope -U
+Looking in indexes: https://mirrors.aliyun.com/pypi/simple, https://mirrors.aliyun.com/pypi/simple
+Collecting modelscope
+  Downloading https://mirrors.aliyun.com/pypi/packages/3b/99/52014a331a516ee850e87c784a72269d23bcf56d8892984bcf01be3faee7/modelscope-1.17.1-py3-none-any.whl (5.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.7/5.7 MB 195.4 kB/s eta 0:00:00
+Requirement already satisfied: requests>=2.25 in /usr/local/lib/python3.10/dist-packages (from modelscope) (2.32.3)
+Requirement already satisfied: tqdm>=4.64.0 in /usr/local/lib/python3.10/dist-packages (from modelscope) (4.66.5)
+Requirement already satisfied: urllib3>=1.26 in /usr/local/lib/python3.10/dist-packages (from modelscope) (2.2.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.10/dist-packages (from requests>=2.25->modelscope) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.10/dist-packages (from requests>=2.25->modelscope) (3.6)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests>=2.25->modelscope) (2024.2.2)
+Installing collected packages: modelscope
+Successfully installed modelscope-1.17.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+```
+
+
 ## 启动 LLaMA Board 可视化微调（由 Gradio 驱动）:
 
 以LLaMA Board为例演示，进一步说明Docker部署和其他方式并没有不同。🏖️
