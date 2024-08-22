@@ -562,7 +562,7 @@ build flags: -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -DNDEBUG -std=gnu11 -O2 -g -fdata
 
 ### 情况描述:
 
-部分读者反应，从modelscope下载模型时出现了下列错误:
+部分读者反映，从modelscope下载模型时出现了下列错误:
 
 ```log
 Downloading:   5%|████████▉                                                             | 90.0M/1.69G [00:04<01:12, 23.6MB/s]
