@@ -424,7 +424,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 如果你的服务器能够正常从nvidia官方获取资源，那就非常方便了。按以下步骤操作即可:
 
-> 详细信息可访问 "https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-the-nvidia-container-toolkit" 查看。
+> 详细信息可访问[nvidia-container-toolkit官网链接](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-the-nvidia-container-toolkit)查看。
 
 #### 1. 配置代码仓库:
 
