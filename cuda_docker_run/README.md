@@ -14,11 +14,11 @@
   - [配置使用魔搭社区下载模型(可选):](#配置使用魔搭社区下载模型可选)
   - [启动 LLaMA Board 可视化微调（由 Gradio 驱动）:](#启动-llama-board-可视化微调由-gradio-驱动)
   - [无法以Docker方式启动llamafactory解决方案(可选):](#无法以docker方式启动llamafactory解决方案可选)
-    - [nvidia官方提供的安装方式:](#nvidia官方提供的安装方式)
+    - [方法一: nvidia官方提供的安装方式:](#方法一-nvidia官方提供的安装方式)
       - [1. 配置代码仓库:](#1-配置代码仓库)
       - [2. 更新包列表:](#2-更新包列表)
       - [3. 安装NVIDIA Container Toolkit:](#3-安装nvidia-container-toolkit)
-    - [手动安装NVIDIA Container Toolkit:](#手动安装nvidia-container-toolkit)
+    - [方法二: 手动安装NVIDIA Container Toolkit:](#方法二-手动安装nvidia-container-toolkit)
       - [1. 下载安装包:](#1-下载安装包)
       - [2. 将安装包上传到服务器:](#2-将安装包上传到服务器)
       - [3. 解压文件:](#3-解压文件)
@@ -34,7 +34,7 @@ Docker安装好后，记得先启动你的Docker再执行后续操作，不要Do
 
 ### 启动 Docker 服务:
 
-如果你的Docker服务没有启动，可以运行一下指令启动Docker服务:<br>
+如果你的Docker服务没有启动，可以运行以下指令启动Docker服务:<br>
 
 ```bash
 sudo systemctl start docker
@@ -374,7 +374,9 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 这是因为你的服务器没有配置 **"显卡直通"** ，Docker容器无法使用GPU，需要安装 **"nvidia-container-toolkit"**。
 
-### nvidia官方提供的安装方式:
+可以从以下两种方法中任选其一，下载、安装 **"nvidia-container-toolkit"**:
+
+### 方法一: nvidia官方提供的安装方式:
 
 如果你的服务器能够正常从nvidia官方获取资源，那就非常方便了。按以下步骤操作即可:
 
@@ -403,7 +405,7 @@ sudo apt-get install -y nvidia-container-toolkit
 
 这就成功了～
 
-### 手动安装NVIDIA Container Toolkit:
+### 方法二: 手动安装NVIDIA Container Toolkit:
 
 如果你和笔者一样服务器网络受限，无法拉取类似 "https://nvidia.github.io" 的网址。那就需要手动下载 **NVIDIA Container Toolkit** 进行安装了。步骤如下:
 
