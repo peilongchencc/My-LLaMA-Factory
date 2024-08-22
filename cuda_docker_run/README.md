@@ -268,6 +268,7 @@ Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.10/d
 Installing collected packages: modelscope
 Successfully installed modelscope-1.17.1
 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+root@cece9e2b3716:/app# 
 ```
 
 
