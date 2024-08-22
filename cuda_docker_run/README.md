@@ -13,7 +13,7 @@
   - [进入llamafactory容器操作:](#进入llamafactory容器操作)
   - [配置使用魔搭社区下载模型(可选):](#配置使用魔搭社区下载模型可选)
   - [启动 LLaMA Board 可视化微调（由 Gradio 驱动）:](#启动-llama-board-可视化微调由-gradio-驱动)
-  - [数据卷详情:](#数据卷详情)
+  - [数据卷详情(可选):](#数据卷详情可选)
   - [无法以Docker方式启动llamafactory解决方案(可选):](#无法以docker方式启动llamafactory解决方案可选)
     - [方法一: nvidia官方提供的安装方式:](#方法一-nvidia官方提供的安装方式)
       - [1. 配置代码仓库:](#1-配置代码仓库)
@@ -356,7 +356,9 @@ model-00001-of-00010.safetensors:  92%|█████████████�
 ```
 
 
-## 数据卷详情:
+## 数据卷详情(可选):
+
+作为补充内容，这里介绍下Docker运行llamafactory后容器后，数据的存储位置:
 
 - `hf_cache`：使用宿主机的 Hugging Face 缓存文件夹，允许更改为新的目录。
 
