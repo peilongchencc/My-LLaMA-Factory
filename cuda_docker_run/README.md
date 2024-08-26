@@ -25,7 +25,8 @@
       - [3. 解压文件:](#3-解压文件)
       - [4. 按依赖顺序安装 .deb 文件:](#4-按依赖顺序安装-deb-文件)
       - [5. 验证安装:](#5-验证安装)
-    - [配置 Docker 能够识别并使用 GPU:](#配置-docker-能够识别并使用-gpu)
+    - [修改 Docker 配置文件:](#修改-docker-配置文件)
+    - [测试效果:](#测试效果)
   - [modelscope.hub.errors.FileIntegrityError解决方案(可选):](#modelscopehuberrorsfileintegrityerror解决方案可选)
     - [情况描述:](#情况描述)
     - [解决方案:](#解决方案)
@@ -452,7 +453,7 @@ sudo apt update
 sudo apt-get install -y nvidia-container-toolkit
 ```
 
-这就成功了～
+这就成功安装 **"nvidia-container-toolkit"** 了～
 
 ### 方法二: 手动安装NVIDIA Container Toolkit:
 
@@ -562,7 +563,7 @@ build flags: -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -DNDEBUG -std=gnu11 -O2 -g -fdata
 
 现在，你已经成功安装了 NVIDIA Container Toolkit 1.16.1，并正确配置了环境。根据 `nvidia-container-cli --version` 的输出，工具包已经正确安装并可以正常使用。
 
-### 配置 Docker 能够识别并使用 GPU:
+### 修改 Docker 配置文件:
 
 1. 使用 `nvidia-ctk` 命令配置容器运行时：
 
@@ -581,7 +582,8 @@ sudo nvidia-ctk runtime configure --runtime=docker
             "path": "nvidia-container-runtime"
         }
     }
-}(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
+}
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
 ```
 
 2. 重启 Docker:
@@ -599,6 +601,33 @@ INFO[0000] Config file does not exist; using empty config
 INFO[0000] Wrote updated config to /etc/docker/daemon.json 
 INFO[0000] It is recommended that docker daemon be restarted. 
 (base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# sudo systemctl restart docker
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
+```
+
+
+### 测试效果:
+
+安装 **"nvidia-container-toolkit"**，并修改 Docker 的配置文件后，我们测试下效果:
+
+💢💢💢安装前:
+
+```log
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# docker compose up -d
+[+] Running 0/1
+ ⠸ Container llamafactory  Starting                                                                                                                                     0.4s 
+Error response from daemon: could not select device driver "nvidia" with capabilities: [[gpu]]
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda#
+```
+
+⬇️⬇️⬇️安装后:
+
+```log
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# docker compose up -d
+[+] Running 1/1
+ ✔ Container llamafactory  Started                                                                                                                                     11.0s 
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# docker images
+REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
+docker-cuda-llamafactory   latest    c11dc2063efa   45 minutes ago   22.7GB
 (base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
 ```
 
