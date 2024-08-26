@@ -25,6 +25,7 @@
       - [3. 解压文件:](#3-解压文件)
       - [4. 按依赖顺序安装 .deb 文件:](#4-按依赖顺序安装-deb-文件)
       - [5. 验证安装:](#5-验证安装)
+    - [配置 Docker 能够识别并使用 GPU:](#配置-docker-能够识别并使用-gpu)
   - [modelscope.hub.errors.FileIntegrityError解决方案(可选):](#modelscopehuberrorsfileintegrityerror解决方案可选)
     - [情况描述:](#情况描述)
     - [解决方案:](#解决方案)
@@ -420,7 +421,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 (base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# docker images
 ```
 
-这是因为你的服务器没有配置 **"显卡直通"** ，Docker容器无法使用GPU，需要安装 **"nvidia-container-toolkit"**。
+这是因为你的服务器没有配置 **"显卡直通"** ，Docker容器无法使用GPU，需要安装 **"nvidia-container-toolkit"**，并配置 Docker 能够识别并使用 GPU 。
 
 可以从以下两种方法中任选其一，下载、安装 **"nvidia-container-toolkit"**:
 
@@ -560,6 +561,46 @@ build flags: -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -DNDEBUG -std=gnu11 -O2 -g -fdata
 ```
 
 现在，你已经成功安装了 NVIDIA Container Toolkit 1.16.1，并正确配置了环境。根据 `nvidia-container-cli --version` 的输出，工具包已经正确安装并可以正常使用。
+
+### 配置 Docker 能够识别并使用 GPU:
+
+1. 使用 `nvidia-ctk` 命令配置容器运行时：
+
+```bash
+sudo nvidia-ctk runtime configure --runtime=docker
+```
+
+此命令会修改主机上的 `/etc/docker/daemon.json` 文件，以便 Docker 可以使用 NVIDIA 容器运行时。例如:
+
+```log
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# cat /etc/docker/daemon.json
+{
+    "runtimes": {
+        "nvidia": {
+            "args": [],
+            "path": "nvidia-container-runtime"
+        }
+    }
+}(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
+```
+
+2. 重启 Docker:
+
+```bash
+sudo systemctl restart docker
+```
+
+终端显示:
+
+```log
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# sudo nvidia-ctk runtime configure --runtime=docker
+WARN[0000] Ignoring runtime-config-override flag for docker 
+INFO[0000] Config file does not exist; using empty config 
+INFO[0000] Wrote updated config to /etc/docker/daemon.json 
+INFO[0000] It is recommended that docker daemon be restarted. 
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# sudo systemctl restart docker
+(base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
+```
 
 
 ## modelscope.hub.errors.FileIntegrityError解决方案(可选):
