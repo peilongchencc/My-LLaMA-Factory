@@ -503,6 +503,8 @@ release-v1.16.1-stable/packages/ubuntu18.04/amd64/nvidia-container-toolkit_1.16.
 
 #### 4. 按依赖顺序安装 .deb 文件:
 
+复制下列指令，终端直接运行:
+
 ```bash
 sudo dpkg -i release-v1.16.1-stable/packages/ubuntu18.04/amd64/libnvidia-container1_1.16.1-1_amd64.deb \
 release-v1.16.1-stable/packages/ubuntu18.04/amd64/libnvidia-container-tools_1.16.1-1_amd64.deb \
@@ -570,13 +572,13 @@ build flags: -D_GNU_SOURCE -D_FORTIFY_SOURCE=2 -DNDEBUG -std=gnu11 -O2 -g -fdata
 
 ### 修改 Docker 配置文件:
 
-1. 使用 `nvidia-ctk` 命令配置容器运行时：
+1. 使用 `nvidia-ctk` 命令配置容器运行时可以识别、使用GPU：
 
 ```bash
 sudo nvidia-ctk runtime configure --runtime=docker
 ```
 
-此命令会修改主机上的 `/etc/docker/daemon.json` 文件，以便 Docker 可以使用 NVIDIA 容器运行时。例如:
+此命令会修改主机上的 `/etc/docker/daemon.json` 文件，以便 Docker 可以使用、识别GPU。例如:
 
 ```log
 (base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# cat /etc/docker/daemon.json
@@ -635,6 +637,8 @@ REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
 docker-cuda-llamafactory   latest    c11dc2063efa   45 minutes ago   22.7GB
 (base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# 
 ```
+
+恭喜🎉，成功以Docker方式启动LLaMA-Factory了～
 
 
 ## modelscope.hub.errors.FileIntegrityError解决方案(可选):
