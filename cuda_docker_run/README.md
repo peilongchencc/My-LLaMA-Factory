@@ -421,7 +421,7 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 (base) root@ubuntu22:~/data/LLaMA-Factory-main/docker/docker-cuda# docker images
 ```
 
-这是因为你的服务器没有配置 **"显卡直通"** ，Docker容器无法使用GPU，需要安装 **"nvidia-container-toolkit"**，并配置 Docker 能够识别并使用 GPU 。
+🚨这是因为你的服务器没有配置 **"显卡直通"** ，Docker容器无法识别、使用GPU。需要安装 **"nvidia-container-toolkit"**，并修改 Docker 的配置文件（通常是 `/etc/docker/daemon.json`），让Docker 能够识别并使用 GPU 。
 
 可以从以下两种方法中任选其一，下载、安装 **"nvidia-container-toolkit"**:
 
